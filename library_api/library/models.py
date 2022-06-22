@@ -23,3 +23,15 @@ class Manager(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+
+class Student(models.Model):
+    """Manager Model"""
+    first_name = models.TextField(null=True)
+    last_name = models.TextField(null=True)
+    user_name = models.TextField(null=True)
+    password = models.TextField(null=True, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField("updated_at", auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
