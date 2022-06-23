@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from api_utility.views import success_response, paginated_response, created_response
-
+from .serializers import AdminSerializer
 # class HelloView(APIView):
 #     permission_classes = (IsAuthenticated,)
 
@@ -12,4 +12,23 @@ from api_utility.views import success_response, paginated_response, created_resp
 #         content = {'message': 'Hello, World!'}
 #         return Response(content)
 
-# class AdminView(APIView):
+class AdminView(APIView):
+    """
+    List all Admins or create a new admin
+    """
+    def post(self, request):
+        data = request.data
+        first_name = data["first_name"]
+        last_name = data["last_name"]
+        user_name = data["user_name"]
+        password = data["password"]
+
+        admin = createBusiness(user, name, address, phone_number, category)
+        if not admin:
+            return Response({"message": "Business creation failed"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        serializer = AdminSerializer(admin)
+        data = serializer.data
+        return created_response(message="successfully created business", body=data)
+
+
