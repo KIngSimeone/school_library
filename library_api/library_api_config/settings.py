@@ -165,3 +165,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Admin user name and password
 SUPER_ADMIN_USER_NAME = os.getenv('SUPER_ADMIN_USER_NAME')
 SUPER_ADMIN_PASSWORD = os.getenv('SUPER_ADMIN_PASSWORD')
+
+# Rest Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
