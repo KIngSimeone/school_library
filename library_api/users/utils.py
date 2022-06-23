@@ -22,3 +22,13 @@ def create_admin(first_name, last_name, user_name, password):
         logger.error("create_admin@error")
         logger.error(e)
         return None
+
+def get_all_admins():
+    try:
+        admins = Admin.objects.all()
+        return admins
+
+    except Exception as e:
+        logger.error("get_all_admins@error")
+        logger.error(e)
+        return None
