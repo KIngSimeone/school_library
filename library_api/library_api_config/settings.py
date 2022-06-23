@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'library',
-    'api_utility,'
+    'api_utility'
 ]
 
 MIDDLEWARE = [
@@ -59,6 +59,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'library_api_config.urls'
+APPEND_SLASH = False
 
 TEMPLATES = [
     {
